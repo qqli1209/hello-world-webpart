@@ -1,4 +1,3 @@
-import { Version } from '@microsoft/sp-core-library';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import {
   IPropertyPaneConfiguration,
@@ -14,6 +13,13 @@ export interface IHelloWorldWebPartProps {
 }
 
 export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
+  protected onInit(): Promise<void> {
+    return super.onInit();
+  }
+
+  protected onDispose(): void {
+    super.onDispose();
+  }
 
   public render(): void {
     this.domElement.innerHTML = `
@@ -31,10 +37,6 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
           </div>
         </div>
       </div>`;
-  }
-
-  protected get dataVersion(): Version {
-    return Version.parse('1.0');
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
