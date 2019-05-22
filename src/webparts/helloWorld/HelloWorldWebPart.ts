@@ -17,10 +17,6 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
     return super.onInit();
   }
 
-  protected onDispose(): void {
-    super.onDispose();
-  }
-
   public render(): void {
     this.domElement.innerHTML = `
       <div class="${ styles.helloWorld }">
@@ -37,6 +33,10 @@ export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorld
           </div>
         </div>
       </div>`;
+  }
+
+  protected onDispose(): void {
+    super.onDispose();
   }
 
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
